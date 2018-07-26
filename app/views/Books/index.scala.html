@@ -1,0 +1,29 @@
+@(books: collection.mutable.HashSet[Book])
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Books</title>
+</head>
+<body>
+    <h1>All the books are listed here</h1>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Author</th>
+        </thead>
+        <tbody>
+            @for(book <- books) {
+                <tr>
+                    <td><a href="#">@book.title</a></td>
+                    <td>@book.price<td>
+                    <td>@book.author</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
