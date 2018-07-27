@@ -1,0 +1,15 @@
+@(bookForm : Form[Book])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+@import helper._
+
+@layout("Create Books") {
+    <h1>Add a book to the database</h1>
+
+    @form(CSRF(routes.BooksController.save())) {
+        @inputText(bookForm("id"))
+        @inputText(bookForm("title"))
+        @inputText(bookForm("price"))
+        @inputText(bookForm("author"))
+
+        <input type="submit" value="Add Book">
+    }
+}

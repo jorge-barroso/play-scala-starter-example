@@ -1,0 +1,11 @@
+@(book: Book)
+
+@layout("Show Book Details") {
+    <h1>Show book details from the database</h1>
+
+    <p>Title: @book.title</p>
+    <p>Author: @book.author</p>
+    <p>Price: $@book.price</p>
+    <a href="@routes.BooksController.edit(book.id.get)">Edit</a>
+    <a href="@routes.BooksController.destroy(book.id.get)">Delete</a>
+}

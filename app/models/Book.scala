@@ -2,30 +2,30 @@ package models
 
 import scala.collection.mutable.HashSet
 
-case class Book(id: Option[Long], title: String, price: Int, author: String)
+case class Book(id: Option[Long], var title: String, var price: Int, var author: String)
 
 object Books {
   private val _books: HashSet[Book] = HashSet.empty[Book]
 
-  def books = _books
+  def books: HashSet[Book] = _books
 
-  _books.+=(new Book(Option(1), "C++", 20, "Dennis Ritchie"))
-  _books.+=(new Book(Option(2), "Java", 30, "Sun Mycrosystems Inc."))
+  _books += Book(Option(1), "C++", 20, "Dennis Ritchie")
+  _books += Book(Option(2), "Java", 30, "Sun Microsystems Inc.")
 
-  def findById(id: Integer): Book = {
+  def findById(id: Long): Book = {
     for(book: Book <- books){
-      if(id.eq(book.id))
-        book
+      if(id == book.id.get)
+        return book
     }
 
     null
   }
 
-  def add(book: Book) = {
-    books.add(book)
+  def add(book: Book): Boolean = {
+    _books.add(book)
   }
 
   def remove(book: Book): Boolean = {
-    books.remove(book)
+    _books.remove(book)
   }
 }

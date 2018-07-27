@@ -25,9 +25,9 @@ GET     /assets/*file               controllers.Assets.versioned(file)
 # BOOKS methods
 GET     /books                                  controllers.BooksController.index
 GET     /books/create                           controllers.BooksController.create
-GET     /books/edit/:id                         controllers.BooksController.edit(id: Int)
-GET     /books/delete/:id                       controllers.BooksController.destroy(id: Int)
-GET     /books/:id                              controllers.BooksController.show(id: Int)
+GET     /books/edit/:id                         controllers.BooksController.edit(id: Long)
+GET     /books/delete/:id                       controllers.BooksController.destroy(id: Long)
+GET     /books/:id                              controllers.BooksController.show(id: Long)
 
 POST    /books/edit                             controllers.BooksController.update
 POST    /books/create                           controllers.BooksController.save
